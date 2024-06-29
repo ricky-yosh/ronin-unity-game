@@ -2,21 +2,45 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public Transform player;  // Reference to the player
-    public float speed = 5f;  // Speed of the enemy
+    [HideInInspector]
+    public Transform player;  // This will be assigned at runtime
+    public float speed = 5f;
+    public float attackRange = 2f;
+    public int attackDamage = 10;
 
     void Update()
     {
-        // Check the distance to the player
-        float distance = Vector3.Distance(transform.position, player.position);
-        
-        // If the player is within a certain range, follow the player
-        if (distance < 10f)
+        if (player != null)
         {
-            // Calculate the direction towards the player
-            Vector3 direction = (player.position - transform.position).normalized;
-            // Move the enemy towards the player
-            transform.position += direction * speed * Time.deltaTime;
+            float distance = Vector3.Distance(transform.position, player.position);
+            if (distance < attackRange)
+            {
+                // AttackPlayer();
+            }
+            else if (distance < 10f)
+            {
+                Vector3 direction = (player.position - transform.position).normalized;
+                transform.position += direction * speed * Time.deltaTime;
+            }
+        }
+    }
+
+    // void AttackPlayer()
+    // {
+    //     PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
+    //     if (playerHealth != null)
+    //     {
+    //         playerHealth.TakeDamage(attackDamage);
+    //     }
+    // }
+
+    void OnDestroy()
+    {
+        // Notify the spawner if needed
+        EnemySpawner spawner = FindObjectOfType<EnemySpawner>();
+        if (spawner != null)
+        {
+            spawner.EnemyDestroyed();
         }
     }
 }

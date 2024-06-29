@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public GameObject enemyPrefab;  // The enemy prefab to be spawned
-    public Transform player;  // Reference to the player
-    public float spawnRadius = 20f;  // Radius around the player where enemies can spawn
-    public float spawnInterval = 5f;  // Time interval between spawns
-    public int maxEnemies = 10;  // Maximum number of enemies allowed to be active
+    public GameObject enemyPrefab;
+    public Transform player;
+    public float spawnRadius = 20f;
+    public float spawnInterval = 5f;
+    public int maxEnemies = 10;
 
     private float nextSpawnTime;
     private int currentEnemyCount;
@@ -29,7 +29,15 @@ public class EnemySpawner : MonoBehaviour
     void SpawnEnemy()
     {
         Vector3 spawnPosition = GetRandomPositionAroundPlayer();
-        Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+        GameObject newEnemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+        
+        // Assign the player Transform to the new enemy instance
+        Enemy enemyScript = newEnemy.GetComponent<Enemy>();
+        if (enemyScript != null)
+        {
+            enemyScript.player = player;
+        }
+
         currentEnemyCount++;
     }
 
