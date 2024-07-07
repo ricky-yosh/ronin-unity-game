@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class EnemyMovement : MonoBehaviour
 {
     [HideInInspector]
     public Transform player;  // This will be assigned at runtime
@@ -22,25 +22,6 @@ public class Enemy : MonoBehaviour
                 Vector3 direction = (player.position - transform.position).normalized;
                 transform.position += direction * speed * Time.deltaTime;
             }
-        }
-    }
-
-    // void AttackPlayer()
-    // {
-    //     PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
-    //     if (playerHealth != null)
-    //     {
-    //         playerHealth.TakeDamage(attackDamage);
-    //     }
-    // }
-
-    void OnDestroy()
-    {
-        // Notify the spawner if needed
-        EnemySpawner spawner = FindObjectOfType<EnemySpawner>();
-        if (spawner != null)
-        {
-            spawner.EnemyDestroyed();
         }
     }
 }

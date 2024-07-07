@@ -32,7 +32,7 @@ public class EnemySpawner : MonoBehaviour
         GameObject newEnemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
         
         // Assign the player Transform to the new enemy instance
-        Enemy enemyScript = newEnemy.GetComponent<Enemy>();
+        EnemyMovement enemyScript = newEnemy.GetComponent<EnemyMovement>();
         if (enemyScript != null)
         {
             enemyScript.player = player;
