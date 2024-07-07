@@ -4,6 +4,7 @@ public class EnemySpawner : MonoBehaviour
 {
     public GameObject enemyPrefab;
     public Transform player;
+    public Transform playerCamera;
     public float spawnRadius = 20f;
     public float spawnInterval = 5f;
     public int maxEnemies = 10;
@@ -33,9 +34,12 @@ public class EnemySpawner : MonoBehaviour
         
         // Assign the player Transform to the new enemy instance
         EnemyMovement enemyScript = newEnemy.GetComponent<EnemyMovement>();
-        if (enemyScript != null)
+        Billboard billboard = newEnemy.GetComponentInChildren<Billboard>();
+        if (enemyScript != null &&
+            billboard != null)
         {
             enemyScript.player = player;
+            billboard.SetCamera(playerCamera);
         }
 
         currentEnemyCount++;
