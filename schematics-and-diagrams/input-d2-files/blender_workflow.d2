@@ -1,0 +1,103 @@
+# *** Theme of Diagram ***
+
+vars: {
+    d2-config: {
+    # Terminal theme code
+    theme-id: 200
+    }
+}
+
+# *** Title ***
+
+title: |md
+# Blender Workflow v1.0.1
+| {near: top-center}
+
+direction: down
+
+# *** Left ***
+
+Blender: {
+    shape: image
+    icon: ./icons/blender.svg
+}
+
+Sculpting Features: {
+    shape: image
+    icon: ./images/sculpting.png
+}
+
+Texture Painting: {
+    shape: image
+    icon: ./images/texture_painting.png
+}
+
+UV Unwrapping: {
+    shape: image
+    icon: ./images/uv_unwrapping.jpg
+}
+
+Blender -- Sculpting Features: {
+    style: {
+        opacity: 0
+    }
+}
+
+Sculpting Features -- Texture Painting: {
+    style: {
+        opacity: 0
+    }
+}
+
+Texture Painting -- UV Unwrapping: {
+    style: {
+        opacity: 0
+    }
+}
+
+# *** Middle ***
+
+"Rigging & Animation" -- Texturing: Add skeleton, weights, and keyframes
+Texturing -- Sculpting: Apply base colors & textures
+Sculpting -- Blockout: Brush to style geometry
+Blockout -- Concept Art References: Setup reference images & create basic shapes
+
+
+# *** Right ***
+
+Blocking: {
+    shape: image
+    icon: ./images/blocking.png
+}
+
+Keyframe Animation: {
+    shape: image
+    icon: ./images/keyframe_animation.jpg
+}
+
+Rigging: {
+    shape: image
+    icon: ./images/rigging.jpeg
+}
+
+Reference Image: {
+    shape: image
+    icon: ./images/reference_images.jpeg
+}
+
+Blocking -- Keyframe Animation: {
+    style: {
+        opacity: 0
+    }
+}
+Keyframe Animation -- Rigging: {
+    style: {
+        opacity: 0
+    }
+}
+
+Rigging -- Reference Image: {
+    style: {
+        opacity: 0
+    }
+}

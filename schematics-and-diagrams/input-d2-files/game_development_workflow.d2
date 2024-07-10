@@ -1,0 +1,115 @@
+# *** Theme of Diagram ***
+
+vars: {
+  d2-config: {
+    # Terminal theme code
+    theme-id: 200
+  }
+}
+
+# *** Title ***
+
+title: |md
+# Game Development Workflow v3.0.0
+| {near: top-center}
+
+direction: down
+
+# *** Images ***
+
+PureRef: {
+  shape: image
+  icon: ./icons/pureref.svg
+}
+
+Procreate: {
+  shape: image
+  icon: ./icons/procreate_logo.svg
+}
+
+Blender: {
+    shape: image
+    icon: ./icons/blender.svg
+}
+
+ElevenLabs: {
+  shape: image
+  icon: ./icons/eleven_labs.svg
+}
+
+Unity: {
+    shape: image
+    icon: ./icons/unity.svg
+}
+
+VSCode: {
+  shape: image
+  icon: ./icons/vscode.svg
+}
+
+Sourcetree: {
+  shape: image
+  icon: ./icons/sourcetree.svg
+}
+
+Github: {
+    shape: image
+    icon: ./icons/github_white.svg
+}
+
+Jira: {
+    shape: image
+    icon: ./icons/jira.svg
+}
+
+# *** PureRef ***
+
+PureRef -> Reference Board: Create mood board
+PureRef -> Reference Board: Inpiration board
+
+Reference Board -> Procreate: Ideas for designs
+
+# *** Procreate ***
+
+Procreate -> Storyboards for Animations: Storyboard
+Storyboards for Animations -> AandR: Export as reference for 3d artist
+Procreate -> Concept Art: Create concept art
+Concept Art -> Material: lighting, colors, textures
+Concept Art -> Texture: 2d patterns
+Procreate -> Models: Character Turnaround 
+Procreate -> Models: Multiple Character Iterations
+
+# *** Blender ***
+
+AandR: "Animation & Rigging"
+AandR -> Blender: Design rigs and animations
+Texture -> Blender: Import Textures
+Material -> Blender: Import Materials
+Models -> Blender: Design Models
+
+Blender -> Assets: Export Models
+Blender -> Animations: Export Animations
+Blender -> Textures: Export Textures
+Blender -> Sourcetree: Commit 3D Models
+
+# *** Unity ***
+
+VSCode -> Unity: Attach Scripts to Game Objects
+Assets -> Unity: Import Models
+Animations -> Unity: Import Animations
+Textures -> Unity: Import Textures
+ElevenLabs -> Sound Effects: Create AI Sound Effects
+Sound Effects -> Unity: Import Sound Effects
+Sourcetree -> Unity: See changes from team
+
+Unity -> VSCode: Create C\# scripts
+Unity -> Sourcetree: Create commits
+
+# *** Jira ***
+
+Jira -> GitHub: Track Issues and Tasks 
+
+# *** Github ***
+
+GitHub -> Sourcetree: Fetch, Prune & Pull
+Sourcetree -> Github: Pull Requests
