@@ -1,0 +1,60 @@
+# *** Theme of Diagram ***
+
+vars: {
+    d2-config: {
+    # Terminal theme code
+    theme-id: 200
+    }
+}
+
+# *** Title ***
+
+title: |md
+# Procreate Workflow v1.0.1
+| {near: top-center}
+
+direction: down
+
+# *** Left ***
+
+Procreate: {
+    shape: image
+    icon: ./icons/procreate_logo.svg
+}
+
+# *** Middle ***
+
+Rendering -- Coloring: Shadows, highlights, textures, blending
+Coloring -- Ink: Adds colors from a color pallete
+Ink -- Sketch: Clean Final Art of Character
+Sketch -- Armature: Defines characters anatomy and features
+Armature -- Brainstorm: Create basic structure, proportions, and pose.
+
+
+# *** Right ***
+
+Character Turnaround: {
+    shape: image
+    icon: ./images/character_turnaround.jpg
+}
+
+Character Variations: {
+    shape: image
+    icon: ./images/character_variations.jpg
+}
+
+Character Workflow: {
+    shape: image
+    icon: ./images/character_workflow.jpg
+}
+
+Character Workflow -- Character Variations: {
+    style: {
+        opacity: 0
+    }
+}
+Character Variations -- Character Turnaround: {
+    style: {
+        opacity: 0
+    }
+}
