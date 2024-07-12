@@ -34,9 +34,8 @@ public class EnemySpawner : MonoBehaviour
         
         // Assign the player Transform to the new enemy instance
         EnemyMovement enemyScript = newEnemy.GetComponent<EnemyMovement>();
-        Billboard billboard = newEnemy.GetComponentInChildren<Billboard>();
-        if (enemyScript != null &&
-            billboard != null)
+        EnemyHealthBarCanvas billboard = newEnemy.GetComponentInChildren<EnemyHealthBarCanvas>();
+        if (enemyScript != null && billboard != null)
         {
             enemyScript.player = player;
             billboard.SetCamera(playerCamera);
@@ -56,5 +55,18 @@ public class EnemySpawner : MonoBehaviour
     public void EnemyDestroyed()
     {
         currentEnemyCount--;
+    }
+
+    // Draw gizmos to visualize the spawn radius and spawn points
+    void OnDrawGizmos()
+    {
+        // Draw the spawn radius
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(player.position, spawnRadius);
+
+        // Draw a gizmo for the next potential spawn point
+        Gizmos.color = Color.green;
+        Vector3 spawnPosition = GetRandomPositionAroundPlayer();
+        Gizmos.DrawSphere(spawnPosition, 1f);
     }
 }

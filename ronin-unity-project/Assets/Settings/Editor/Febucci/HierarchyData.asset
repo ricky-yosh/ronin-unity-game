@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enabled: 1
   updateInPlayMode: 1
-  drawActivationToggle: 1
+  drawActivationToggle: 0
   icons:
     enabled: 1
     aligned: 0
@@ -24,11 +24,11 @@ MonoBehaviour:
     prefabs: []
   alternatingBackground:
     enabled: 1
-    color: {r: 0, g: 0, b: 0, a: 0.08}
+    color: {r: 0, g: 0, b: 0, a: 0.11372549}
   separator:
     enabled: 1
-    startString: '>'
-    color: {r: 0, g: 1, b: 1, a: 0.15}
+    startString: ---
+    color: {r: 0.11764706, g: 0.11764706, b: 0.1764706, a: 0.4392157}
   tree:
     enabled: 1
     drawOverlayOnColoredPrefabs: 1
@@ -41,9 +41,9 @@ MonoBehaviour:
       - {r: 0.56, g: 0.44, b: 1, a: 1}
       - {r: 0.44, g: 0.71, b: 1, a: 1}
       - {r: 0.19, g: 0.53, b: 0.78, a: 1}
-    - overlayColor: {r: 0.93, g: 1, b: 0.42, a: 0.04}
+    - overlayColor: {r: 0.8039216, g: 0.8156863, b: 0.8509804, a: 0.04}
       colors:
-      - {r: 0.93, g: 1, b: 0.42, a: 1}
-      - {r: 1, g: 0.75, b: 0.42, a: 1}
-      - {r: 1, g: 0.46, b: 0.31, a: 1}
-      - {r: 1, g: 0.35, b: 0.34, a: 1}
+      - {r: 0.26666668, g: 0.5647059, b: 0.5921569, a: 1}
+      - {r: 0.2901961, g: 0.63529414, b: 0.8745098, a: 1}
+      - {r: 0.20392157, g: 0.39215687, b: 0.9254902, a: 1}
+      - {r: 0.49411765, g: 0.24313726, b: 0.9019608, a: 1}

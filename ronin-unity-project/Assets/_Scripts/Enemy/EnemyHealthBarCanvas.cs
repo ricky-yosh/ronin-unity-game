@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Billboard : MonoBehaviour
+public class EnemyHealthBarCanvas : MonoBehaviour
 {
     private Transform _cam;
 
