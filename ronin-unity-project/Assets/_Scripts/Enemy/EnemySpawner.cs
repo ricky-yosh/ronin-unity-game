@@ -11,11 +11,14 @@ public class EnemySpawner : MonoBehaviour
 
     private float nextSpawnTime;
     private int currentEnemyCount;
+    private Vector3 nextSpawnPosition;
 
     void Start()
     {
         nextSpawnTime = Time.time + spawnInterval;
         currentEnemyCount = 0;
+        // Set the initial spawn point for the enemy
+        nextSpawnPosition = GetRandomPositionAroundPlayer();
     }
 
     void Update()
@@ -24,12 +27,13 @@ public class EnemySpawner : MonoBehaviour
         {
             SpawnEnemy();
             nextSpawnTime = Time.time + spawnInterval;
+            nextSpawnPosition = GetRandomPositionAroundPlayer();
         }
     }
 
     void SpawnEnemy()
     {
-        Vector3 spawnPosition = GetRandomPositionAroundPlayer();
+        Vector3 spawnPosition = nextSpawnPosition;
         GameObject newEnemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
         
         // Assign the player Transform to the new enemy instance
@@ -47,7 +51,8 @@ public class EnemySpawner : MonoBehaviour
     Vector3 GetRandomPositionAroundPlayer()
     {
         float angle = Random.Range(0f, 360f);
-        float distance = Random.Range(0f, spawnRadius);
+        // make sure that distance is at the spawn range so that the player doesn't see the enemy's spawn
+        float distance = spawnRadius;
         Vector3 spawnDirection = new Vector3(Mathf.Sin(angle), 0, Mathf.Cos(angle)) * distance;
         return player.position + spawnDirection;
     }
@@ -66,7 +71,7 @@ public class EnemySpawner : MonoBehaviour
 
         // Draw a gizmo for the next potential spawn point
         Gizmos.color = Color.green;
-        Vector3 spawnPosition = GetRandomPositionAroundPlayer();
+        Vector3 spawnPosition = nextSpawnPosition;
         Gizmos.DrawSphere(spawnPosition, 1f);
     }
 }
