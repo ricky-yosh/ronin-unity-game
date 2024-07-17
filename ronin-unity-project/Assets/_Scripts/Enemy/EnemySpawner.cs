@@ -11,29 +11,27 @@ public class EnemySpawner : MonoBehaviour
 
     private float nextSpawnTime;
     private int currentEnemyCount;
-    private Vector3 nextSpawnPosition;
+    private Vector3 mostRecentSpawnPosition;
 
     void Start()
     {
         nextSpawnTime = Time.time + spawnInterval;
         currentEnemyCount = 0;
-        // Set the initial spawn point for the enemy
-        nextSpawnPosition = GetRandomPositionAroundPlayer();
     }
 
     void Update()
     {
         if (Time.time >= nextSpawnTime && currentEnemyCount < maxEnemies)
         {
+            mostRecentSpawnPosition = GetRandomPositionAroundPlayer();
             SpawnEnemy();
             nextSpawnTime = Time.time + spawnInterval;
-            nextSpawnPosition = GetRandomPositionAroundPlayer();
         }
     }
 
     void SpawnEnemy()
     {
-        Vector3 spawnPosition = nextSpawnPosition;
+        Vector3 spawnPosition = mostRecentSpawnPosition;
         GameObject newEnemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
         
         // Assign the player Transform to the new enemy instance
@@ -71,7 +69,7 @@ public class EnemySpawner : MonoBehaviour
 
         // Draw a gizmo for the next potential spawn point
         Gizmos.color = Color.green;
-        Vector3 spawnPosition = nextSpawnPosition;
+        Vector3 spawnPosition = mostRecentSpawnPosition;
         Gizmos.DrawSphere(spawnPosition, 1f);
     }
 }

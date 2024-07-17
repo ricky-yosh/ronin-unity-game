@@ -5,7 +5,7 @@ public class EnemyMovement : MonoBehaviour
     [HideInInspector]
     public Transform player;  // This will be assigned at runtime
     public float speed = 5f;
-    public float attackRange = 2f;
+    public float attackRange = 2f; // Enemy will not get closer than 2 uni
     public int attackDamage = 10;
 
     void Update()
@@ -17,7 +17,7 @@ public class EnemyMovement : MonoBehaviour
             {
                 // AttackPlayer();
             }
-            else if (distance < 10f)
+            else
             {
                 Vector3 direction = (player.position - transform.position).normalized;
                 transform.position += direction * speed * Time.deltaTime;

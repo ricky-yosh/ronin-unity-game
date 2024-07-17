@@ -85,6 +85,8 @@ namespace SimpleFolderIcon.Editor
                     return AssetDatabase.LoadAssetAtPath<Texture2D>($"{basePath}Scenes.png");
                 case "_Scripts":
                     return AssetDatabase.LoadAssetAtPath<Texture2D>($"{basePath}Scripts.png");
+                case "Scripts":
+                    return AssetDatabase.LoadAssetAtPath<Texture2D>($"{basePath}Scripts.png");
                 case "Settings":
                     return AssetDatabase.LoadAssetAtPath<Texture2D>($"{basePath}Settings.png");
                 case "Shaders":
