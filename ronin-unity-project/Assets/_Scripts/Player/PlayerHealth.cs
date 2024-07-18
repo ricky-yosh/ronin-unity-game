@@ -1,7 +1,9 @@
-using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
 
-public class PlayerHealth : MonoBehaviour
+namespace RoninGame
 {
-    
+    public class PlayerHealth : MonoBehaviour
+    {
+        
+    }
 }
