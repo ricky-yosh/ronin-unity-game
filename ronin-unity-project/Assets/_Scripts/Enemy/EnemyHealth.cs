@@ -33,6 +33,7 @@ namespace RoninGame
 
 		private void Die()
 		{
+			
 			Destroy(gameObject);
 		}
 	}
