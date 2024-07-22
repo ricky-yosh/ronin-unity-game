@@ -25,5 +25,10 @@ namespace RoninGame
         {
             return playerInputActions.Player.Dash.triggered;
         }
+
+        public bool GetAttackInput()
+        {
+            return playerInputActions.Player.Attack.triggered;
+        }
     }
 }

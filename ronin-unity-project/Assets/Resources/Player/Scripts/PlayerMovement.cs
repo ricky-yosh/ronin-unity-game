@@ -11,7 +11,12 @@ namespace RoninGame
         [SerializeField] private GameInput gameInput;
 
         private Rigidbody playerRigidbody;
-        private bool isDashing = false;
+
+        // Movement
+        private bool isRunning;
+        private bool isDashing = false; 
+
+        // Dashing Extra
         private float dashTimeLeft;
         private float dashCooldownTimer;
         private Vector3 dashDirection;
@@ -23,8 +28,8 @@ namespace RoninGame
 
         private void Update()
         {
-            HandleMovement();
             HandleDash();
+            HandleMovement();
         }
 
         private void HandleMovement()
@@ -40,6 +45,9 @@ namespace RoninGame
             {
                 playerRigidbody.MoveRotation(Quaternion.Slerp(playerRigidbody.rotation, Quaternion.LookRotation(moveDir), Time.deltaTime * rotateSpeed));
             }
+
+            // Set boolean value for running
+            isRunning = moveDir != Vector3.zero;
         }
 
         private void HandleDash()
@@ -75,5 +83,24 @@ namespace RoninGame
             Vector2 inputVector = gameInput.GetMovementVectorNormalized();
             dashDirection = new Vector3(inputVector.x, 0f, inputVector.y);
         }
-    }
-}
+
+        /// <summary>
+        /// Getter for if player is running which means WASD movement
+        /// </summary>
+        /// <returns> Boolean Value if Player is Running </returns>
+        public bool getIsRunning()
+        {
+            return isRunning;
+        }
+
+        /// <summary>
+        /// Getter for if player is dashing
+        /// </summary>
+        /// <returns> Boolean Value if Player is Dashing </returns>
+        public bool getIsDashing()
+        {
+            return isDashing;
+        }
+
+    } // class
+} // namespace

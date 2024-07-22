@@ -4,12 +4,13 @@ namespace RoninGame
 {
     public class AOEAttack : MonoBehaviour
     {
-        public float radius = 5f;
-        public float angle = 90f;
-        public int damage = 25;
-        public LayerMask enemyLayer;
-        public Transform player;
-        private Camera mainCamera;
+        [SerializeField] private float radius = 5f;
+        [SerializeField] private float angle = 90f;
+        [SerializeField] private int damage = 25;
+        [SerializeField] private GameInput gameInput;
+        [SerializeField] private LayerMask enemyLayer;
+        [SerializeField] private Transform player;
+        [SerializeField] private Camera mainCamera;
 
         private void Start()
         {
@@ -18,7 +19,7 @@ namespace RoninGame
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (gameInput.GetAttackInput())
             {
                 PerformAOEAttack();
             }
