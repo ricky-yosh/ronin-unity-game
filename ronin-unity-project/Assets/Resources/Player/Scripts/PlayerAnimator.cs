@@ -18,6 +18,11 @@ namespace RoninGame
 
         private Animator animator;
 
+        private void Update()
+        {
+            animator.SetBool(PlayerAnimationStates.IS_RUNNING, playerMovement.getIsRunning());
+        }
+
         private void Awake()
         {
             animator = GetComponent<Animator>();
