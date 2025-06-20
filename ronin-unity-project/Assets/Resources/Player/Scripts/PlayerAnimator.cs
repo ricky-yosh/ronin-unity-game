@@ -28,5 +28,6 @@ namespace RoninGame
             animator = GetComponent<Animator>();
             animator.SetBool(PlayerAnimationStates.IS_RUNNING, playerMovement.getIsRunning());
         }
-    }
-}
+        
+    } // class
+} // namespace
